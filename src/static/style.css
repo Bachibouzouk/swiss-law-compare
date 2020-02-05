@@ -1,0 +1,22 @@
+
+.text{
+    height: 200px;
+}
+.diff{
+    border: solid 2px #eaecef;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: white;
+}
+.center--align{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deleted {
+    background-color: #ffeef0;
+}
+.inserted {
+    background-color: #e6ffed;
+}
