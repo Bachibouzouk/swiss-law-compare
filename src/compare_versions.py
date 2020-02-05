@@ -1,7 +1,8 @@
 import difflib as dl
 import dash_html_components as html
 
-PUNCTUATION_SIGNS = (" ", ",", ".", ":", ";", "!", "?")
+PUNCTUATION_SIGNS = (" ", ",", ".", ":", ";", "!", "?", "'", "’", "(", ")", "[", "]", "{", "}",
+                     "<", ">")
 
 V1 = "-"  # change in text 1
 V2 = "+"  # change in text 2
