@@ -80,7 +80,6 @@ def highlight_diff(s, diff_info, diff_char, **kwargs):
     :return:
     """
 
-
     idx = [i for i in range(len(diff_info)) if diff_info.startswith(diff_char, i) or diff_info.startswith("^", i)]
 
     idx_set = set()
@@ -91,7 +90,7 @@ def highlight_diff(s, diff_info, diff_char, **kwargs):
         min_idx = word[0]
         word = set(word)
         # look for consecutive words with modifications
-        if idx_set.isdisjoint(word) and min_idx - 2 in idx_set :
+        if idx_set.isdisjoint(word) and min_idx - 2 in idx_set:
             word = word.union((min_idx - 1,))
         idx_set = idx_set.union(word)
 
@@ -168,12 +167,11 @@ def group_diffs(text1_lines, text2_lines):
 
     line_diff = {}
     previous_sign = None
-    current_sign = None
 
     for i, l in enumerate(diff):
         current_sign = l[0]
         if current_sign == " ":
-            print(i)
+            pass
         # line before is not a -
         if current_sign == V1 and previous_sign != V1:
             store_a_diff(line_diff, stored_diff)
