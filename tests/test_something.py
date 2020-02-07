@@ -8,6 +8,18 @@ are also good support.
 """
 import pytest
 
+from src.compare_versions import group_diffs, DiffObj
+
+
+def test_highlight():
+    v1 = "celui qui, dans le même dessein, aura organisé ou encouragé des actions de propagande " \
+         "ou y aura pris part;"
+    v2 = "quiconque, dans le même dessein, aura organisé ou encouragé des actions de propagande " \
+         "ou y aura pris part;"
+
+    df = DiffObj(group_diffs([v1], [v2])[0], debug=True)
+    assert df.deleted[0] == "<celui qui>"
+    assert df.inserted[0] == "<quiconque>"
 
 # this function will not run as a test as its name does not start by "test_"
 def addition(a, b):
