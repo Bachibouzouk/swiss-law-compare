@@ -130,6 +130,14 @@ class DiffObj:
             self.v1 = stored_diff[0]
             self.v2 = stored_diff[1]
 
+            if (del_info is not None) and (ins_info is not None):
+                # compare the two diffs to make sure to get the change up to full word
+                new_del_info = list(ins_info.replace(V2, V1))
+                for i, di in enumerate(del_info):
+                    if ins_info[i] == ' ' and di in ("-", "^"):
+                        new_del_info[i] = V1
+                del_info = "".join(new_del_info[0:len(del_info)])
+
             if del_info is not None:  # and ins_info is None:
                 self.deleted = highlight_diff(self.v1, del_info, V1, class_name=CLASS_DELETED,
                                               debug=self.debug)
